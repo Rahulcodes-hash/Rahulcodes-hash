@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>etc - Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1a1a1a, #000000);
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255,255,255,0.07);
+      padding: 2rem;
+      height: max-content;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 500px;
+      backdrop-filter: blur(15px);
+      animation: fadeIn 1s ease;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ffd700;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 1rem;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .tab:hover, .tab.active {
+      background: #ffd700;
+      color: black;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .info div {
+      margin: 0.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 4px;
+    }
+
+    .label {
+      color: #ccc;
+    }
+
+    .value {
+      font-weight: bold;
+      color: white;
+    }
+
+    .socials {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .socials a {
+      font-size: 1.4rem;
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <img src="https://i.pravatar.cc/150?img=3" alt="Profile" class="profile-pic" />
+  <h2 style="text-align:center;">etc</h2>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('info')">Info</div>
+    <div class="tab" onclick="showTab('projects')">Projects</div>
+    <div class="tab" onclick="showTab('contact')">Contact</div>
+  </div>
+
+  <div class="tab-content active" id="info">
+    <div class="info">
+      <div><span class="label">Name:</span> <span class="value">Rahul Biswas</span></div>
+      <div><span class="label">Gender:</span> <span class="value">Male</span></div>
+      <div><span class="label">Education:</span> <span class="value">Class 12 (Commerce)</span></div>
+      <div><span class="label">Location:</span> <span class="value">India</span></div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="projects">
+    <p>🚧 Projects under construction...</p>
+    <ul>
+      <li>🔧 Portfolio Website</li>
+      <li>💬 Chat App</li>
+      <li>📊 Score Tracker</li>
+    </ul>
+  </div>
+
+  <div class="tab-content" id="contact">
+    <div class="info">
+      <div><span class="label">Email:</span> <span class="value">etc@example.com</span></div>
+      <div><span class="label">Phone:</span> <span class="value">+91 9876543210</span></div>
+    </div>
+    <div class="socials">
+      <a href="#" title="GitHub">💻</a>
+      <a href="#" title="LinkedIn">💼</a>
+      <a href="#" title="Instagram">📸</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

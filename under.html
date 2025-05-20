@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Under Development</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #413502, #000000);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .emoji {
+      font-size: 4rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 1rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #ddd;
+      margin: 1rem 0;
+      max-width: 600px;
+      animation: fadeIn 2s ease;
+    }
+
+    .progress-bar {
+      width: 80%;
+      max-width: 400px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 25px;
+      overflow: hidden;
+      margin: 20px auto;
+    }
+
+    .progress-bar span {
+      display: block;
+      height: 15px;
+      width: 60%; /* example progress */
+      background: #ffd700;
+      animation: grow 2s ease-in-out forwards;
+    }
+
+ 
+    .socials {
+      margin-top: 2rem;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      font-size: 1.5rem;
+      animation: fadeIn 2.5s ease;
+    }
+
+    .socials a {
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .socials a:hover {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes grow {
+      from { width: 0; }
+      to { width: 60%; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="emoji">🚧</div>
+  <h1>Site Under Development</h1>
+  <p>We're working hard to launch something awesome. Stay tuned while we build your future experience. We're 60% done!</p>
+
+  <div class="progress-bar">
+    <span></span>
+  </div>
+
+  <div class="socials">
+    <a href="#" title="Twitter">🐦</a>
+    <a href="#" title="Instagram">📸</a>
+    <a href="#" title="LinkedIn">💼</a>
+    <a href="#" title="GitHub">💻</a>
+  </div>
+
+</body>
+</html>
