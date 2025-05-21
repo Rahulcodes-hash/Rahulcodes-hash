@@ -54,14 +54,13 @@ let s = document.querySelector('.fi')
 
 function sbar (e,i){
     let it = i
- let oot = document.querySelector('.root')   
-const bv = document.body.scrollHeight - window.innerHeight*2;
-
+    let oot = document.querySelector('.root')   
     oot.style.display = 'flex';
     oot.style.padding = '1rem'
     oot.style.borderRadius = '0.3rem'
     oot.style.position = 'absolute';
-    oot.style.top = `${bv}px`;
+    console.log(Math.abs(e.getBoundingClientRect().top))
+    oot.style.top = `${Math.abs(e.getBoundingClientRect().top)}px`;
     oot.style.left = '-100pc';
     oot.style.width = 'fit-content';
     oot.style.background = '';
@@ -81,7 +80,7 @@ const bv = document.body.scrollHeight - window.innerHeight*2;
     oot.appendChild(coss)
 e.addEventListener('click',()=>{
      
-   oot.style.left = '10px';
+   oot.style.left = '0px';
 })
 coss.onclick = ()=>oot.style.left = '-100pc';
 
