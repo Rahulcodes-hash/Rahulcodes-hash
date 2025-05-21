@@ -108,8 +108,9 @@ height: 100%;
 .base{
     height: 100vh;
     width: 100%;
-    background:linear-gradient(rgb(0, 44, 167),rgb(0, 176, 199),white) ;
-   
+    /* background:linear-gradient(rgb(0, 44, 167),rgb(0, 176, 199),white) , ; */
+   background: url(../assets/spiderman.jpg) no-repeat center center;
+   background-size:cover ;
     padding: 1rem;
     position: relative;
     transition:top 0.5s ,border 0.5s;
@@ -143,8 +144,10 @@ height: 100%;
     max-width: 30rem;
     background:linear-gradient( 45deg,rgb(3, 14, 44) ,rgb(3, 21, 100) ) ;
    position: relative;
-    height: 20vh;
+    height: 10rem;
     color: white;
+    padding: 1rem;
+    opacity: 0.6;
 }
 .status h1{
   padding: 0.5rem;
@@ -156,9 +159,7 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .status p {
     font-size: 1.5rem;
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+  
     font-family: cursive;
 }
 
