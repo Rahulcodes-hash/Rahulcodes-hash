@@ -58,8 +58,8 @@ function sbar (e,i){
     oot.style.display = 'flex';
     oot.style.padding = '1rem'
     oot.style.borderRadius = '0.3rem'
-    oot.style.position = 'absolute';
-    console.log(Math.abs(e.getBoundingClientRect().top))
+    oot.style.position = 'fixed';
+    console.log(e.getBoundingClientRect().top)
     oot.style.top = `${Math.abs(e.getBoundingClientRect().top)}px`;
     oot.style.left = '-100pc';
     oot.style.width = 'fit-content';
