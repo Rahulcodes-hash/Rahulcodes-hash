@@ -15,7 +15,7 @@ body{
     display: none;
 }
 nav{
-    height: 7vh;
+    height: 10vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
