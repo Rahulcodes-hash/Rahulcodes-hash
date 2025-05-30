@@ -1,109 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    *{margin: 0;border: none;padding: 0;transition: all 0.5s;
-    box-sizing: border-box;}
-    body{
+    * {
+        margin: 0;
+        border: none;
+        padding: 0;
+        transition: all 0.5s;
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    body {
         display: flex;
         flex-direction: column;
         height: 100vh;
-        width: 100vw;background-color: rgb(231, 231, 231);
+        width: 100vw;
         align-items: center;
     }
-    ::-webkit-scrollbar{
+
+    ::-webkit-scrollbar {
         display: none;
     }
-    nav{
+
+    nav {
         display: flex;
         height: 10vh;
         width: 100%;
-        background-color: rgb(0, 8, 36);
-        color: white;
+        background-color: rgb(235, 235, 235);
+        color: rgb(0, 0, 0);
         padding: 1rem;
         justify-content: space-between;
         align-items: center;
-        transition: 0.5s; 
+        transition: 0.5s;
     }
-    nav button{
-        padding: 1rem;background:transparent;color: rgb(255, 255, 255);outline: 1px solid ;
+
+    nav button {
+        border-radius: 0.4rem;
+        padding: 1rem;
+        background: rgb(58, 58, 58);
+        color: rgb(255, 255, 255);
     }
-    nav button:hover {
-        background-color: rgb(0, 162, 255);
-    }
-    main{
-        width:100%;
-        height: 80vh;
+
+    main {
+        width: 100%;
+        height: fit-content;
         overflow-y: visible;
         overflow-x: hidden;
-       column-count: 3;
-       padding: 0.5rem;color: rgb(243, 243, 243);
+        display: grid;
+        grid-template-columns: auto auto auto;
+        color: rgb(243, 243, 243);
     }
-    main div img{
-        border-radius: 0.5rem;
-      width: 100%;
-      margin-bottom: 10px;
 
-       
+    main h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 1rem;
+        color: yellow;
+        background: black;
+        transform: translate(-50%, -50%);
     }
-main h2{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    color: yellow;
-    transform: translate(-50%,-50%);
-    
-}
-main .foc{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
+
+    .foc {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+
+    }
+
+    .l {
+        height: 33.34vh;
+
+    }
+
+    .pic1 {
+        background: url(./gallery/spiderman.jpg) no-repeat;
+        background-size: contain;
+    }
 </style>
+
 <body>
     <nav>
         <button onclick="window.history.back()">Back</button>
-        <h1 >Gallery</h1>
+        <h1>Gallery</h1>
     </nav>
     <main>
-        <div>
-                <img src="./gallery/spiderman.jpg" alt="">
+        <div class="d">
+            <div class="l pic1"></div>
+        </div>
+        <div class="d">
+            <div class="l pic1"></div>
 
         </div>
-        <div>
-                <img src="./gallery/spiderman.jpg" alt="">
+        <div class="d">
+            <div class="l pic1"></div>
 
         </div>
-        <div>
-                <img src="./gallery/spiderman.jpg" alt="">
+        <div class="d">
 
+            <div class="l pic1"></div>
         </div>
-         <div>
-                <img src="./gallery/spiderman.jpg" alt="">
+        <div class="d">
+            <div class="l pic1"></div>
+        </div>
+        <div class="d">
 
+            <div class="l pic1"></div>
         </div>
-        <div>
-                <img src="./gallery/spiderman.jpg" alt="">
+        <div class="d">
 
+            <div class="l pic1"></div>
         </div>
-        <div>
-                <img src="./gallery/spiderman.jpg" alt="">
+        <div class="d">
 
+            <div class="l pic1"></div>
         </div>
-        <h2>Under Construction</h2>
+        <div class="d">
+
+            <div class="l pic1"></div>
+        </div>
+        <div class="d">
+
+            <div class="l pic1"></div>
+        </div>
+        <div class="d">
+
+            <div class="l pic1"></div>
+        </div>
+        <div class="d">
+
+            <div class="l pic1"></div>
+        </div>
+        <h2>Under Construction !?</h2>
     </main>
     <script>
-        let img = document.querySelectorAll('img')
-       img.forEach(e=>{
-        e.onclick = ()=> e.classList.toggle('foc')
-       
-        
-       })
+        let img = document.querySelectorAll('.l')
+        img.forEach(e => {
+            e.onclick = () => e.classList.toggle('foc')
+        })
     </script>
 </body>
+
 </html>
