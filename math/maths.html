@@ -13,9 +13,9 @@
         <button onclick="history.back()">Back</button>
         <h1>Maths</h1>
     </nav>
-    <main> 
+    <div class="main"> 
         <h1>Formula Tab (Class 11 & 12)</h1>
-        <section>
+        <section class="formule">
                 <h1>Differential Calculus formule </h1>
                 <ul> 
                     <li>dx/dx  = 1</li>
@@ -28,23 +28,68 @@
                 </ul>
                 <h2>Note : Its is used when changes are small </h2>
         </section>
-       <section>
+       <section class="formule">
                 <h1>Intregal Calculus formule</h1>
                 <ul> 
-                    <li>dx/dx  = 1</li>
-                    <li>d(constant)/dx  = 0</li>
-                    <li>dx<sup>n</sup>/dx  = nx<sup>n-1</sup></li>
-                    <li>d(constant)x<sup>n</sup> = (const)nx<sup>n-1</sup></li>
-                    <li>d(m+-n)/dx = dm /dx+dn/dx</li>
-                    <li>dsinx/dx = cosx</li>
-                    <li>dcosx/dx = -sinx</li>
                 </ul>
                 <h2>Note : when we want to add changes upto infinite times </h2>
         </section>
-        <section>
+        <section class="formule">
             <h1>Trignometry function Formule</h1>
+            <ul>
+                <li>cos(-x) = cosx</li>
+                <li>sin(-x) = -sinx</li>
+                <li>cos(x+y) = cosxcosy - sinxsiny</li>
+                <li>cos(x-y) = cosxcosy + sinxsiny</li>
+                <li>cos(π/2 - θ) = sinx </li>
+                <li>sin(x+y) = sinxcosy + cosxsiny</li>
+                <li>sin(x+y) = sinxcosy - cosxsiny</li>
+                <li>cos(π/2 + θ) = -sinx </li>
+                <li>sin(π/2 + θ) = cosx </li>
+                <li>cos(π + x) = -cosx </li>
+                <li>sin(π + x) = -sinx </li>
+                <li>tan(x+y) = (tanx + tany)/1-tanxtany</li>
+                <li>tan(x-y) = (tanx - tany)/1+tanxtany</li>
+                <li>cot(x+y) = (cotxcoty - 1)/coty+cotx</li>
+                <li>cot(x-y) = (cotxcoty + 1)/coty-cotx</li>
+            </ul>
         </section>
-    </main>
+    </div class="main">
+    <div class="main" style="font-family: cursive; background:url('../assets/v602-nunoon-05-rippednotes.jpg') no-repeat -20px center; background-size: cover">
+        <h1 style="color: black;">Derivation</h1>
+        <section class="derivation formule" style="font-family: cursive; color: black;">
+            <h1>Trignometry Derivation</h1>
+            <h3>cox(x+y) = cosxcosy - sinxcosy</h3>
+            <br>
+            <canvas ></canvas>
+            <div class="exp"></div>
+            <script>
+                const canvas1 = document.querySelector('canvas')
+                const ch = canvas1.height
+                const cw = canvas1.width
+                const ctx = canvas1.getContext('2d')
+                ctx.beginPath()
+                ctx.fillStyle = 'black'
+                ctx.arc(cw/2,ch/2,cw/6,0,2*Math.PI)
+                ctx.stroke()
+                ctx.closePath()
+
+               ctx.beginPath();
+                ctx.strokeStyle = 'black';
+                ctx.moveTo(0, ch / 2);      // Start at center
+                ctx.lineTo(cw , ch/2);          // Line straight down
+                ctx.stroke();
+                ctx.closePath()
+            //yaxis
+                ctx.beginPath();
+                ctx.strokeStyle = 'black';
+                ctx.moveTo(cw/2, 0);      // Start at center
+                ctx.lineTo(cw/2 ,ch);          // Line straight down
+                ctx.stroke();
+                ctx.closePath()
+            </script>
+        </section>
+    </div class="main">
 <script src="maths.js"></script>
 </body>
 </html>

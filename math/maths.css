@@ -1,19 +1,21 @@
 *{
     padding: 0;
     margin: 0;border:none;
-    box-sizing: border-box;
+    box-sizing: border-box;transition: 0.5s;
     font-family: Arial, Helvetica, sans-serif
 }
 
 body{
     height: 100vh;
     width: 100vw;
+        background: rgb(1, 80, 36);
+
 }
 ::-webkit-scrollbar{
     display: none;
 }
 nav{
-    height: 10vh;
+    height: 7vh;
     width: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
@@ -24,26 +26,53 @@ nav{
 nav button{
     padding: 0.7rem;
 }
-main{
-    padding: 0.5rem;
-    height: 90vh;
-    background: rgb(1, 80, 36);
+.main{
+    height: 100vh;
+    padding: 1rem;
     color: rgb(255, 255, 255);
 }
 section{
-    padding: 1rem;
-    overflow-y: hidden;
-    height: 3rem;transition: 0.5s;
+  padding: 0.5rem;
+    height: 3rem;
+    overflow-y: hidden;width: fit-content;
+    width: 50%;position: relative;
+    z-index: 0;transition: 0.5s;
 }
+section *{font-family: cursive;}
+
 section h1{
     user-select: none;
     cursor: pointer;
     text-decoration: underline;
+  
 }
+
 .section{
     height: 40%;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
     overflow-y: scroll;
+    position: absolute;z-index: 20;
+    color: rgb(0, 0, 0);
+
 }
+
 ul li {
     padding: 0.5rem;
+}
+.section ul {
+    padding-left: 1rem;
+
+}
+/* //second main background */
+
+/* //derivation */
+canvas{
+    background: url("../assets/wooden-floor-background.avif") no-repeat center;
+    background-size: cover;
+    height: 100%;width: 100%;
+}
+.derivation{
+    display: flex;
+    flex-direction: column;
 }

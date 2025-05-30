@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //status update 
 //seacrch bar 
 
-let items = ['search','bat']
+let items = ['search','bat','ball']
 let s = document.querySelector('.fi')
 
 
@@ -59,7 +59,8 @@ function sbar (e,i){
     oot.style.padding = '1rem'
     oot.style.borderRadius = '0.3rem'
     oot.style.position = 'fixed';
-    console.log(e.getBoundingClientRect().top)
+ 
+    
     oot.style.top = `${Math.abs(e.getBoundingClientRect().top)}px`;
     oot.style.left = '-100pc';
     oot.style.width = 'fit-content';
@@ -79,7 +80,7 @@ function sbar (e,i){
     oot.appendChild(btn)
     oot.appendChild(coss)
 e.addEventListener('click',()=>{
-     
+     inp.focus()
    oot.style.left = '0px';
 })
 coss.onclick = ()=>oot.style.left = '-100pc';
@@ -95,27 +96,28 @@ menu.style.zIndex = '1000';
 inp.addEventListener('input', () => {
     const rect = inp.getBoundingClientRect();
     menu.style.width = rect.width + 'px';
-    menu.style.top = rect.top + 'px'
-    menu.style.left = rect.left  + 'px';            
+  
+    menu.style.top =rect.height +  rect.top + 'px'
+    menu.style.left = rect.left  + 'px';   
+       document.body.appendChild(menu)
+          const p  = document.createElement('p')
+         for(let x = 0 ;x<i.length ; x++ ){
 
+            if(i[x].includes(inp.value) && inp.value != ''){
+          
+              p.style.padding = '0.5rem'
+              p.innerHTML = i[x]
+                menu.appendChild(p)
 
+            }
+           if (inp.value === '' &&  menu.appendChild(p)) { menu.removeChild(p)
 
-    if (!oot.contains(menu)) {
-        oot.appendChild(menu);  
-    }
-    for (let i of it){ 
-        let lst = document.createElement('p')
-        lst.style.position = 'relative'
-        lst.style.padding= '0.5rem'
-        if (i[1].includes(inp.value && inp.value!='')){
-            lst.innerHTML = i
-            menu.appendChild(lst)
-        }
-        else{
-             menu.removeChild(lst)
-        }
-        
-    }
+  }
+            
+
+                
+            
+         }
 });
 
 
