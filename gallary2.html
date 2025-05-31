@@ -11,8 +11,7 @@
         margin: 0;
         border: none;
         padding: 0;
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.5)
-;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         font-family: Arial, Helvetica, sans-serif;
         box-sizing: border-box;
     }
@@ -30,8 +29,8 @@
     }
 
     nav {
-        display: grid;
-        grid-template-columns: max-content max-content auto;
+        display: flex;
+      justify-content: space-between;
 align-items: center;
         gap: 10px;
         height: 10vh;
@@ -68,10 +67,8 @@ nav h1{
         top: 50%;
         left: 50%;
         padding: 1rem;
-        border-radius: 1rem;
-        
         color: yellow;
-        background: rgb(182, 115, 14);
+        background: black;
         transform: translate(-50%, -50%);
     }
 
@@ -99,19 +96,12 @@ nav h1{
         transform: translateY(-50%);
         left: 0;
     }
-.note{
-    position: absolute;
-    bottom: 1rem;padding: 1rem;color: white;
-    background: rgb(226, 185, 3);border-radius: 0.5rem;
-transition: 0.5s;
-    visibility: visible;
-}
+
 </style>
 
 <body>
     <nav>
         <button onclick="window.history.back()">Back</button>
-        <button onclick="location.href = 'gallary2.html'">Next</button>
         <h1>Gallery</h1>
     </nav>
     <main>
@@ -161,30 +151,14 @@ transition: 0.5s;
 
             <div class="l pic1"></div>
         </div>
-        <h2>Uploading picture...comming soon</h2>
+        <h2>Under Construction !?</h2>
     </main>
     <script>
         let img = document.querySelectorAll('.l')
-    const note = document.createElement("div")
-      note.className = 'note'
-      note.innerText = "Attention !! to exit a image click the image again"
         img.forEach(e => {
-            e.onclick = () =>{ e.classList.toggle('foc')
-            if(e.classList.contains('foc')){
-                document.body.appendChild(note)
-                setTimeout(() => {
-                    note.style.display = 'none'
-                }, 2000);
-            }
-            else{
-                 document.body.removeChild(note)
-                 note.style.display = 'block'
-            }
-        }
+            e.onclick = () => e.classList.toggle('foc')
         })
 
-
-      
     </script>
 </body>
 

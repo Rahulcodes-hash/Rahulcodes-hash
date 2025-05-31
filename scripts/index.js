@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // base scrool
     let base = document.querySelector('.base')
     let footer = document.querySelector('footer')
-    let magic = document.querySelectorAll('.a')
     let footh = footer.getBoundingClientRect().height
 
     function scrolling() {
@@ -16,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 base.style.borderTop = '0.5rem double'
                 base.style.borderRadius = "1rem 2rem 0 0"
                 base.style.top = -20 + '%'
-                magic.forEach(element => {
-                    element.style.transform = 'rotateX(0)'
-                });
+               
 
 
             }
@@ -26,9 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 base.style.borderTop = '0 double'
                 base.style.borderRadius = "0rem"
                 base.style.top = 0 + '%'
-                magic.forEach(element => {
-                    element.style.transform = 'rotateX(-50deg)'
-                });
+                
             }
             if (window.scrollY > 450) {
 
@@ -42,10 +37,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    //my logo with gravity 
-
 
     //status update 
+const status = document.querySelector('.status')
+const skill = document.createElement('div')
+skill.className = 'skill'
+skill.innerHTML = `
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+`
+status.onclick =()=>{
+    status.classList.toggle('show')
+    if (status.classList.contains('show')){
+           status.appendChild(skill)
+    }
+    else{
+        status.removeChild(skill)
+    }
+}
+
+
 //seacrch bar 
 
 let items = ['search','bat','ball']

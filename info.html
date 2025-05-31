@@ -12,21 +12,20 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #1a1a1a, #000000);
-      color: white;
+      color: rgb(0, 0, 0);
       display: flex;
       justify-content: center;
-      padding: 1rem;
       height: 100vh;
       overflow: hidden;
     }
 
     .container {
-      background: rgba(255,255,255,0.07);
+      background: url(./assets/white-paper-texture.jpg);
       padding: 2rem;
       height: max-content;
-      border-radius: 20px;
+     
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-      width: 90%;
+      width: 100%;
       max-width: 500px;
       backdrop-filter: blur(15px);
       animation: fadeIn 1s ease;
@@ -54,6 +53,7 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       transition: 0.3s;
+      outline: 1px solid grey;
     }
 
     .tab:hover, .tab.active {
@@ -79,12 +79,12 @@
     }
 
     .label {
-      color: #ccc;
+      color: #000000;
     }
 
     .value {
       font-weight: bold;
-      color: white;
+      color: rgb(0, 0, 0);
     }
 
     .socials {
@@ -121,8 +121,8 @@
 <body>
 
 <div class="container">
-  <img src="https://i.pravatar.cc/150?img=3" alt="Profile" class="profile-pic" />
-  <h2 style="text-align:center;">etc</h2>
+  <img src="" alt="Profile" class="profile-pic" />
+  <h2 style="text-align:center; font-family: cursive;">Rahul Biswas</h2>
 
   <div class="tabs">
     <div class="tab active" onclick="showTab('info')">Info</div>
