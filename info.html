@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>etc - Portfolio</title>
+    <script src="https://kit.fontawesome.com/9b4a2f9785.js" crossorigin="anonymous"></script>
+  <title>Profile - Portfolio</title>
   <style>
     * {
       box-sizing: border-box;
+      transition: 0.5s cubic-bezier(1, -0.55, 0, 1.55);
     }
     body {
       margin: 0;
@@ -14,7 +16,8 @@
       background: linear-gradient(to right, #1a1a1a, #000000);
       color: rgb(0, 0, 0);
       display: flex;
-      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
@@ -29,6 +32,7 @@
       max-width: 500px;
       backdrop-filter: blur(15px);
       animation: fadeIn 1s ease;
+      z-index: 10;
     }
 
     .profile-pic {
@@ -96,7 +100,7 @@
 
     .socials a {
       font-size: 1.4rem;
-      color: white;
+      color: rgb(0, 0, 0);
       text-decoration: none;
       transition: transform 0.3s;
     }
@@ -116,13 +120,79 @@
         padding: 1.2rem;
       }
     }
+    .tear{
+      width: 100%;
+      max-width: 500px;
+      height:1rem ;
+      z-index: 10;
+      background: url(./assets/cuttout.png) no-repeat 0 0 ;
+      filter: drop-shadow(0px 0px 1rem rgb(165, 163, 163));
+      background-size: cover;
+
+    }
+    .tear2{
+      rotate: 180deg;
+       width: 100%;
+         max-width: 500px;
+      height:1rem ;
+      position: absolute;
+      bottom: 30%;
+        filter: drop-shadow(0px 0px 1rem rgb(165, 163, 163));
+      background: url(./assets/cuttout.png) no-repeat 0 0 ;
+
+    }
+    .paper{ 
+      max-width: 500px;
+      position: absolute;
+      bottom: 0;
+      height: 30%;
+      width: 100%;
+      background: url(./assets/white-paper-texture.jpg) no-repeat center ;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      padding-top:0.5rem ;
+    }
+    .back{
+      padding: 0.5rem;border: none;position: absolute;
+      left: 1rem;
+      top: 0.8rem;
+      color: white;background-color: rgb(36, 36, 36);
+      z-index: 11;border-radius: 0.2rem;
+    }
+    .glow{
+      display: flex;
+      width: 100%;
+      max-width: 500px;
+      gap: 1rem;
+ 
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .portal{
+    
+      width: 50%;
+  
+      aspect-ratio: 1/1;
+      padding: 1%;
+           max-width: 150px; flex-grow: 1;
+      background-color: #a38b00;
+    }
+    .peeking{
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      border-radius: 0;
+      border: none;
+
+    }
   </style>
 </head>
 <body>
-
+<button class="back" onclick="history.back()">Back</button>
 <div class="container">
-  <img src="" alt="Profile" class="profile-pic" />
-  <h2 style="text-align:center; font-family: cursive;">Rahul Biswas</h2>
+  <img src="./assets/me.jpg" alt="Profile" class="profile-pic" />
+  <h2 style="text-align:center; font-family: cursive;">CA Rahul Biswas</h2>
 
   <div class="tabs">
     <div class="tab active" onclick="showTab('info')">Info</div>
@@ -132,10 +202,15 @@
 
   <div class="tab-content active" id="info">
     <div class="info">
-      <div><span class="label">Name:</span> <span class="value">Rahul Biswas</span></div>
+      <div><span class="label">Name:</span> <span class="value">CA Rahul Biswas</span></div>
+      <div><span class="label">Father's Name:</span> <span class="value">Manoranjan Biswas</span></div>
+      <div><span class="label">Mother's Name:</span> <span class="value">Tumpa Biswas</span></div>
+
+      <div><span class="label">DOB</span> <span class="value">18/06/2006</span></div>
       <div><span class="label">Gender:</span> <span class="value">Male</span></div>
+  
       <div><span class="label">Education:</span> <span class="value">Class 12 (Commerce)</span></div>
-      <div><span class="label">Location:</span> <span class="value">India</span></div>
+      <div><span class="label">Location:</span> <span class="value">India, Assam</span></div>
     </div>
   </div>
 
@@ -150,23 +225,46 @@
 
   <div class="tab-content" id="contact">
     <div class="info">
-      <div><span class="label">Email:</span> <span class="value">etc@example.com</span></div>
+      <div><span class="label">Email:</span> <span class="value">rbnomal@gmail.com</span></div>
       <div><span class="label">Phone:</span> <span class="value">+91 9876543210</span></div>
     </div>
     <div class="socials">
-      <a href="https://github.com/Rahulcodes-hash" title="GitHub" target="_blank">💻</a>
-      <a href="#" title="LinkedIn">💼</a>
-          <a href="https://www.instagram.com/rbnomal.official?igsh=bzl2M2Nwc3l3eDdt" title="Instagram" target="_blank">💼</a>
+      <a href="https://github.com/Rahulcodes-hash" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/rbnomal.official?igsh=bzl2M2Nwc3l3eDdt" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
 </div>
 
+<div class="tear"></div>
+<div class="glow">
+  <div class="portal"></div>
+  <div class="portal"></div>
+  <div class="portal"></div>
+  <div class="portal"></div>
+</div>
+<div class="tear2"></div>
+<div class="paper">
+<i class="fas fa-down-long"> </i>
+</div>
 <script>
   function showTab(id) {
     document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
     document.getElementById(id).classList.add('active');
     event.target.classList.add('active');
+  }
+
+  let tear2 = document.querySelector('.tear2')
+  let paper = document.querySelector('.paper')
+  let i = document.querySelector('.paper i')
+  i.onclick= (e)=>{
+    paper.style.height = "3rem"
+    tear2.style.bottom = '3rem'
+  }
+  let pic = document.querySelector('.profile-pic')
+  pic.onclick = ()=>{
+    pic.classList.toggle('peeking')
   }
 </script>
 

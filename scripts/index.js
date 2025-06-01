@@ -44,17 +44,27 @@ const skill = document.createElement('div')
 skill.className = 'skill'
 skill.innerHTML = `
 <ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<h4>Skill developing : <h4>
+<br>
+<li>musical instrument(Guiter,flute)</li>
+<li>Cooking</li>
+<br>
+<h4>Computer Mastery : </h4>
+<br>
+<li>C++</li>
+<li>Javascript / React / Vue js / node js</li>
+<li>Css / Tailwind css</li>
+<li>Node js / backend </li>
+<li>Mysql / Mongodb</li>
+<li>Excel</li>
+<li>OS / CMD </li>
+<br>
+<h4>Hobbies</h4>
+<br>
+<li>Chess</li>
+<li>Drawing</li>
+<li>poem Writing</li>
+<li>Coding</li>
 </ul>
 `
 status.onclick =()=>{

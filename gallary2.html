@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gallery-2</title>
 </head>
 <style>
     * {
         margin: 0;
         border: none;
         padding: 0;
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.5)
+;
         font-family: Arial, Helvetica, sans-serif;
         box-sizing: border-box;
     }
@@ -30,8 +31,8 @@
 
     nav {
         display: flex;
-      justify-content: space-between;
-align-items: center;
+       justify-content: space-between;
+        align-items: center;
         gap: 10px;
         height: 10vh;
         width: 100%;
@@ -60,29 +61,35 @@ nav h1{
         display: grid;
         grid-template-columns: auto auto auto;
         color: rgb(243, 243, 243);
+        gap: 0.1rem;
     }
 
-    main h2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        padding: 1rem;
-        color: yellow;
-        background: black;
-        transform: translate(-50%, -50%);
-    }
 
   
 
     
-    .pic1 {background: url(./gallery/spiderman.jpg) ;}
+    .pic1 {background: url(./gallery/WhatsApp\ Image\ 2025-06-01\ at\ 19.49.00_0e0c3ec9.jpg) ;}
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
+    .pic2{background: url(./assets/wooden-floor-background.avif);}  
     .pic2{background: url(./assets/wooden-floor-background.avif);}  
     
     .l {   
-        background-size: cover;
+        background-size: cover ;
         background-position: center;
         background-repeat: no-repeat;
         height: 33.34vh;
+        border-radius: 0.3rem;
+        
 
     }
 
@@ -95,8 +102,15 @@ nav h1{
         top: 50%;
         transform: translateY(-50%);
         left: 0;
+        border-radius: 0;
     }
-
+.note{
+    position: absolute;
+    bottom: 1rem;padding: 1rem;color: white;
+    background: rgb(226, 185, 3);border-radius: 0.5rem;
+transition: 0.5s;
+    visibility: visible;
+}
 </style>
 
 <body>
@@ -151,14 +165,31 @@ nav h1{
 
             <div class="l pic1"></div>
         </div>
-        <h2>Under Construction !?</h2>
     </main>
     <script>
         let img = document.querySelectorAll('.l')
+    const note = document.createElement("div")
+      note.className = 'note'
+      note.innerText = "Attention !! to exit a image click the image again"
         img.forEach(e => {
-            e.onclick = () => e.classList.toggle('foc')
+            e.onclick = () =>{ e.classList.toggle('foc')
+            if(e.classList.contains('foc')){
+                document.body.appendChild(note)
+                document.body.style.overflow = 'hidden'
+              cler =  setTimeout(() => {
+                    note.style.display = 'none'
+                }, 2000);
+            }
+            else{
+                clearTimeout(cler)
+                 document.body.removeChild(note)
+                 note.style.display = 'block'
+            }
+        }
         })
 
+
+      
     </script>
 </body>
 

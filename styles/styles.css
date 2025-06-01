@@ -180,7 +180,11 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
     font-family: cursive;
 }
-
+.status .mini{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 section {
     width: 100%;
     padding: 1rem;
@@ -316,4 +320,5 @@ font-family: Arial, Helvetica, sans-serif;
 }
 .skill{
 padding: 1rem;
+font-family: Arial, Helvetica, sans-serif;
 }
