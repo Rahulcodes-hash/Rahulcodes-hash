@@ -24,9 +24,9 @@
 
     .container {
       background: url(./assets/white-paper-texture.jpg);
+      background-size: cover;
       padding: 2rem;
       height: max-content;
-     
       box-shadow: 0 8px 30px rgba(0,0,0,0.5);
       width: 100%;
       max-width: 500px;
@@ -43,6 +43,7 @@
       object-fit: cover;
       display: block;
       margin: 0 auto 1rem;
+      transition: none;
     }
 
     .tabs {
@@ -148,7 +149,7 @@
       height: 30%;
       width: 100%;
       background: url(./assets/white-paper-texture.jpg) no-repeat center ;
-      background-size: cover;
+      background-size: 100%;
       display: flex;
       justify-content: center;
       padding-top:0.5rem ;
@@ -160,30 +161,13 @@
       color: white;background-color: rgb(36, 36, 36);
       z-index: 11;border-radius: 0.2rem;
     }
-    .glow{
-      display: flex;
-      width: 100%;
-      max-width: 500px;
-      gap: 1rem;
- 
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .portal{
-    
-      width: 50%;
-  
-      aspect-ratio: 1/1;
-      padding: 1%;
-           max-width: 150px; flex-grow: 1;
-      background-color: #a38b00;
-    }
     .peeking{
       position: relative;
-      height: 100vh;
       width: 100%;
+     height: 100vh;
       border-radius: 0;
       border: none;
+      transition: none;
 
     }
   </style>
@@ -237,12 +221,7 @@
 </div>
 
 <div class="tear"></div>
-<div class="glow">
-  <div class="portal"></div>
-  <div class="portal"></div>
-  <div class="portal"></div>
-  <div class="portal"></div>
-</div>
+
 <div class="tear2"></div>
 <div class="paper">
 <i class="fas fa-down-long"> </i>
@@ -260,7 +239,9 @@
   let i = document.querySelector('.paper i')
   i.onclick= (e)=>{
     paper.style.height = "3rem"
+    paper.style.transition = "0.5s ease"
     tear2.style.bottom = '3rem'
+     tear2.style.transition = "0.5s ease"
   }
   let pic = document.querySelector('.profile-pic')
   pic.onclick = ()=>{

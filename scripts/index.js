@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //status update 
 const status = document.querySelector('.status')
+const mini = document.querySelector('.mini')
+const i = document.querySelector('.status i')
 const skill = document.createElement('div')
 skill.className = 'skill'
 skill.innerHTML = `
@@ -67,8 +69,9 @@ skill.innerHTML = `
 <li>Coding</li>
 </ul>
 `
-status.onclick =()=>{
+i.onclick =()=>{
     status.classList.toggle('show')
+    mini.classList.toggle("miini")
     if (status.classList.contains('show')){
            status.appendChild(skill)
     }
