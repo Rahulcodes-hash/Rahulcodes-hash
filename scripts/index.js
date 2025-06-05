@@ -4,39 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // base scrool
-    let base = document.querySelector('.base')
-    let footer = document.querySelector('footer')
-    let footh = footer.getBoundingClientRect().height
-
-    function scrolling() {
-        document.addEventListener('scroll', (e) => {
-
-            if (window.scrollY > 50) {
-                base.style.borderTop = '0.5rem double'
-                base.style.borderRadius = "1rem 2rem 0 0"
-                base.style.top = -20 + '%'
-               
-
-
-            }
-            else {
-                base.style.borderTop = '0 double'
-                base.style.borderRadius = "0rem"
-                base.style.top = 0 + '%'
-                
-            }
-            if (window.scrollY > 450) {
-
-                footer.style.bottom = 50 + "vh"
-            }
-            else {
-                footer.style.bottom = 0 + "vh"
-            }
-
-        })
-    }
-
-
 
     //status update 
 const status = document.querySelector('.status')
@@ -89,7 +56,8 @@ let s = document.querySelector('.fi')
 
 function sbar (e,i){
     let it = i
-    let oot = document.querySelector('.root')   
+    let oot = document.querySelector('.root')  
+    let suboot = document.createElement('div') 
     oot.style.display = 'flex';
     oot.style.padding = '1rem'
     oot.style.borderRadius = '0.3rem'
@@ -105,17 +73,20 @@ function sbar (e,i){
     let btn = document.createElement('button')
     let coss = document.createElement('button')
     
-    inp.style.padding = '0.5rem'
+    inp.style.padding = '1rem'
     inp.placeholder = "Search..."
     btn.style.padding = '1rem'
     coss.style.padding = '1rem'
     btn.innerHTML = '🔍'
-    coss.innerHTML = '❌'
-    oot.appendChild(inp)
-    oot.appendChild(btn)
-    oot.appendChild(coss)
+    coss.innerHTML = `X`
+    coss.style.background = 'rgb(195,50,0)'
+    coss.style.color = 'white'
+    coss.style.fontWeight = '900'
+    suboot.appendChild(inp)
+    suboot.appendChild(btn)
+    suboot.appendChild(coss)
+    oot.appendChild(suboot)
 e.addEventListener('click',()=>{
-     inp.focus()
    oot.style.left = '0px';
 })
 coss.onclick = ()=>oot.style.left = '-100pc';
@@ -157,10 +128,82 @@ inp.addEventListener('input', () => {
 
 
 }
+const app_section = document.querySelector(".app-section")
 
+const apps = document.querySelectorAll(".app");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    entry.target.classList.toggle("active", entry.isIntersecting);
+  });
+}, {
+  threshold: 0.8
+});
+
+apps.forEach(app => observer.observe(app));
+
+
+
+
+
+
+// books and page system
+
+const book = document.querySelector('.book')
+const pages = document.querySelectorAll('.page')
+const pageflip = new Audio('../assets/page-flip-47177.mp3')
+pageflip.playbackRate = 2.0
+let mxs, mys, mxm, mym
+
+
+pages.forEach((e,i)=>{
+  e.addEventListener('touchstart',(t)=>{
+    t.preventDefault()
+    const touch = t.touches[0]
+    mxs = touch.clientX
+    mys = touch.clientY
+
+})
+  e.addEventListener('touchmove',(t)=>{
+    t.preventDefault()
+    const touch = t.touches[0]
+    mxm = touch.clientX
+    mym = touch.clientY
+
+})
+  e.addEventListener('touchend',(t)=>{
+    t.preventDefault()
+    if (mxs >= mxm){pageflip.play()
+         e.style.backgroundColor = "rgb(212, 212, 212)"
+         e.style.color = "rgb(212, 212, 212)"
+  
+   e.style.transform  = 'rotateY(-180deg) '  
+   e.style.zIndex =pages.length - i
+
+    }
+    else{ pageflip.play()
+    e.style.zIndex = i+1
+    e.style.backgroundColor = "white"
+     e.style.color = "black"
+   e.style.transform  = 'rotateY(0deg) '
+
+    }
+
+if(i == pages.length - 1){
+    book.style.justifyContent = "end"
+   }    
+else if(i == 0){
+    book.style.justifyContent = "end"
+   }
+   
+   
+})
+})
+console.log("hello")
     function main() {
-        scrolling()
         sbar(s,items)
     }
     main()
 }) 
+
+ 

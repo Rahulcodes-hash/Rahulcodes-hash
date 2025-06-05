@@ -6,11 +6,13 @@
     user-select: none;
     border: none;
     outline: none;
+    z-index: 1;
 }
 body{
     height: 100vh;
     width: 100vw;
     background-color: rgb(32, 33, 43);
+    scroll-behavior: smooth;
 }
 ::-webkit-scrollbar{
     display: none;
@@ -40,6 +42,7 @@ main > .dash-board{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .dash-board > .ound{
@@ -55,47 +58,7 @@ align-items: center;
 gap: 0.5rem;
 }
 
-.content{
-  border-radius: 1rem;
-  position: relative;
-  height: 100%;
-  width: 50%;
-  background: rgba(241, 241, 241, 0);
-  transition: all 0.5s;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.te{
-  padding: 1rem;
-  color: white;
-  border: 0.2rem dashed;
-}
-.te:hover {
-  background-color: rgb(4, 130, 214);
-  border: none;
-}
 
-.nd{
-  height: 10rem;
-  width: 50%;
-  background: url(../assets/qr\ code.jpg)  no-repeat center center;
-  background-size: contain;
-  display: grid;
-  grid-template-rows:auto auto;
-}
-.nd p:first-child {
-  align-self: end;
-  justify-self: center;
-  padding: 0.5rem;border-radius: 0.5rem;
-  background:rgb(24, 52, 129);color: white;
-  font-family: Arial, Helvetica, sans-serif;font-weight: 800;
-}
-.nd p:nth-child(2){
-  font-family: Arial, Helvetica, sans-serif;
-  align-self: self-end;
-  justify-self: center;
-  font-weight: 750;
-  background-color: white;
-}
 .dash-board .my-info{
     width: 100%;
     height: 50%;
@@ -103,6 +66,113 @@ gap: 0.5rem;
     left: 0;
     padding: 1rem 0 3rem 0;
 }
+.my-info h1::before{
+  content: 'In the future';position: absolute;color: rgba(255, 217, 4, 0.795); top: -1rem; font-size: small;
+}
+.same{
+  height: 10rem;
+  width: 90%;border-radius: 0.4rem;
+  background: rgb(3, 11, 20);
+  padding: 1rem;
+  font-family:monospace;
+  color: white;
+  
+
+}
+
+.same h1 , .same h2{
+  filter: drop-shadow(0 0 0.5rem rgb(255, 255, 255));
+      font-size: clamp(0.5rem,7vw,1.5rem);
+}
+.post{
+  border: 0.4rem solid rgb(255, 166, 0);
+  border-bottom: none;
+}
+/* //books making */
+
+
+
+
+
+
+
+
+
+
+
+
+.achievment{
+
+  border: 0.4rem solid rgb(255, 166, 0);
+    border-top: none;
+  margin-top: 1rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: ;
+  position: relative;
+
+
+}
+.achievment .con{
+  position: absolute;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.achievment .con img{
+
+margin: 1rem 0 0 1rem;
+  width: 50%;
+  aspect-ratio: 1/1;border-radius: 100%;
+ border: 0.3rem solid rgb(255, 166, 0);
+  
+}
+
+.book{
+  height:15rem ;
+  width: 100%;
+display: flex; 
+ overflow: scroll;
+ font-variant-ligatures: no-common-ligatures;
+ perspective: 1000px;
+ justify-content: end;
+
+}
+.page{
+  padding: 0.3rem;
+    
+      flex: 0 0 auto;
+      position: absolute;
+      transform-style: preserve-3d;
+      z-index: 2;
+      transform: rotateY(0);
+  width: 50%;
+  transform-origin: left;
+  color: black;
+  display: inline-block;
+  height: inherit;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+  overflow-y: scroll;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .remove-item *{
@@ -123,11 +193,9 @@ gap: 0.5rem;
     height: fit-content;
     width: 100%;
     /* background:linear-gradient(rgb(0, 44, 167),rgb(0, 176, 199),white) , ; */
+  background: rgb(1, 2, 5);
 
-background-color: rgb(0, 9, 26);
-   background-size:cover ;
-    padding: 1rem;
-    position: relative;
+ 
     transition:top 0.5s ,border 0.5s;
     display: flex;
     flex-direction: column;
@@ -136,34 +204,69 @@ background-color: rgb(0, 9, 26);
 
 }
 .base h1{
-    color: white;
+
     margin: 2vh;
     font-family: monospace;
 }
 .base nav{
-    height: 3rem;
-    width: 90%;
+
+    padding: 1.5rem;
+    width: 100%;
     display: grid;
     grid-template-columns: auto auto;
     align-items: center;
-    color :white;font-family: Arial, Helvetica, sans-serif;
+  background: rgb(1, 2, 5);
+    box-shadow: 0 0 1px white;
+    color :rgb(255, 255, 255);font-family: Arial, Helvetica, sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
-
+nav h2{
+   
+    background: linear-gradient(to right,rgb(255, 94, 0),rgb(255, 208, 0));
+   -webkit-background-clip: text;
+    color: transparent;
+}
 .base nav i {
+  color: rgb(35, 123, 255);
     font-size: 1.5rem;
     justify-self: right;
 }
-
+.base > h1{
+  color: rgba(247, 247, 247, 0.952);
+  font-size: medium;font-weight: bolder;
+  margin-top: 8rem;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 1rem;padding: 1rem;
+border-bottom: 4px double ;
+  position: relative;
+  left: -45%;transform: translateX(50%);
+}
 .status {
   margin-top: 1rem;
+
   width: 90%;border-radius: 0.4rem;
-  max-width: 30rem;
-  background-color: #069b8e48;
+
+  max-width: 30rem;  
+
   position: relative;
-  height: 10rem;
-    color: white; 
-    padding: 1rem;overflow: scroll;
+
+  aspect-ratio: 1/0.7;
+   
+    overflow-y: scroll;
+    padding: 1rem;overflow-x: hidden;
     transition: 0.5s cubic-bezier(1, 0, 0, 2);
+}
+/* //showing list of status  */
+
+.show{
+  width: 100%;
+    outline: 2px solid white;
+  height: 30rem;
+  background-color: white;
+  border-radius: 1.2rem;
+
+  
 }
 
 .status h1{
@@ -172,108 +275,125 @@ background-color: rgb(0, 9, 26);
   border-bottom-left-radius:1rem ;
   border-top-left-radius: 1rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background: rgba(6, 61, 48, 0.432);color: rgb(255, 255, 255);
+color: rgb(255, 255, 255); 
 }
 
 .status p {
     font-size: 1.5rem;
-    font-family: cursive;
+    font-family: cursive;color: rgb(255, 255, 255);
 }
-
+.status ul h4{
+  color: rgb(255, 185, 33);
+}
 .status ul li{
-  font-weight: bold;
+  font-weight: 400;
+  color: rgb(95, 95, 95);
 }
 
 .status .mini{
   display: flex;
   justify-content: space-between;
+  
   align-items: center;
   position: sticky;
   top: 0;
-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .miini{
   padding: 1rem;
-  background: rgb(42, 126, 98);
+  width: 100vw;
+  background: rgb(8, 77, 141);
+  position: absolute;
+  transform: translate(-1rem);
 }
 
-section {
-    width: 100%;
+.show h1{color: rgb(34, 34, 34);}
+.app-section {
+    width: 90%;
     padding: 1rem;
     display: flex;
-    flex-wrap: wrap;
+  flex-direction: row;
+ overflow-x: scroll;
+ overflow-y: hidden;
+align-items: center;
     gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    perspective: 1000px;
- 
- 
-}.app-section{
-  perspective: 1000px;
+ scroll-snap-type:x proximity;
+ scroll-behavior: smooth;
+ margin: 2rem 0 2rem 0;
+
 }
+
    
 .app{
-    height: 10vh ;flex-grow: 2;
-    display: flex;   transition: 0.5s;
+  scroll-snap-align: center;
+    flex: 0 0 auto;
+   
+    width: 70%;
+    display: flex;
     justify-content: center;
-    align-items: center;color: rgb(255, 255, 255);
-    width: 25%;border-radius: 0.5rem;
-    background: rgba(0, 94, 100, 0.774);
-font-size: clamp(0.7rem ,2vw ,1.5rem);
-font-family: Arial, Helvetica, sans-serif;
-position: relative;
-overflow: hidden;
-transform-style:preserve-3d ;
-animation: scurated 10s alternate infinite;
+    align-items: center;
+    color: rgb(207, 207, 207);
+    border-radius: 0.5rem;
+    background:rgba(209, 208, 208, 0.986);
+    font-size: clamp(1rem ,5vw ,2rem);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 25rem;
+    transition:all 0.9s;
+    transform-origin:center ;
 }
-.app:nth-child(1){animation-delay: 0.1s;}
-.app:nth-child(2){animation-delay: 1s;}
-.app:nth-child(3){animation-delay: 2s;}
-.app:nth-child(4){animation-delay: 3s;}
-.app:nth-child(5){animation-delay: 4s;}
-.app:nth-child(6){animation-delay: 5s;}
-.app:nth-child(7){animation-delay: 6s;}
-.app:nth-child(8){animation-delay: 7s;}
-
-@keyframes scurated {
-  0%{transform: translateZ(0);}
-  30%{transform: translateZ(10rem);}
-  100%{transform: translateZ(0);}
+.app span{
+  visibility: hidden;
+  color: rgb(255, 255, 255);
 }
-.app:hover{
-  background-color: rgb(3, 118, 212);
+.active {
+  
+   background:rgba(255, 255, 255, 0.986);
+ transform: scale(1.25);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.active span{
+  border-radius: 0.1rem;
+  visibility: visible;
+  height: 70%;
+  width: 90%;
+  padding: 1rem;
+  background:rgb(3, 11, 20);
+  border-top: 0.4rem solid rgb(255, 166, 0);
+  border-bottom: 0.4rem solid rgb(255, 166, 0);
 }
 
 .the-magic{
-    margin-top: 2rem;
+    margin-bottom: 5rem;
     width: 100%;
-    display: flex;
-    justify-content: center;
-   align-items: center;
-  
-  column-gap: 1rem;
-    height: 5rem;
-    transform: rotateZ('34deg');
+    display: grid;
+    padding: 3rem;
+    gap: 1rem;
 }
 
 .b-app{
 padding: 3rem;
-height: 2rem;
-width: 40%;color: rgba(206, 236, 253, 0.993);
-background-color: rgb(2, 31, 95);
+
+width: 100%;color: rgba(255, 255, 255, 0.993);
+aspect-ratio: 1/1;
+background: linear-gradient(45deg, rgb(5, 65, 114) 10%,transparent 0%, transparent 80%, rgb(250, 69, 69)) 10%;
 display: flex;
-border-radius: 0.5rem;
+border-radius: 0.2rem;
 justify-content: center;border-collapse: collapse;
 align-items: center;
 font-family: Arial, Helvetica, sans-serif;
-
-
+font-size: larger;
+font-weight: bold;
+outline:2px solid ;
 }
 
 /* the last not the least  */
 .footer {
-  background-color: #1e1e1e;
+  background: rgb(1, 2, 5);
   position: relative;
   color: #fff;
   padding: 40px 0;
@@ -344,14 +464,36 @@ font-family: Arial, Helvetica, sans-serif;
 /* //root application */
 .root{
   background: rgb(228, 227, 227);
+display: flex;
+flex-direction: column;
+gap: 0.3rem;
+justify-content: center;
+  z-index: 50;
+  padding: 0.1rem;
 }
-/* //showing list of status  */
+/* //special sttufss */
+.special{
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+.special *{
+  background: white;
+  padding: 0.7rem;
+ border-radius: 100%;
+}
+.special button{
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 2px;
+    background-color: rgb(0, 42, 105);
+}
 
-.show{
-  height: 20rem;
-  
-}
+
 .skill{
 padding: 1rem;
 font-family: Arial, Helvetica, sans-serif;
 }
+
