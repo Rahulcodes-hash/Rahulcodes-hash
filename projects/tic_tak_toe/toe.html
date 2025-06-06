@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta http-equiv='refresh' content='100'> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTakToe</title>
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        place-items: center;
+    }
+    nav{
+        padding: 1rem;
+        width: 100%;
+        background-color: rgb(245, 137, 35);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+.gameBoard{
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(3,15vw);
+}
+.gameBoard .box{
+    width: 15vw;
+    aspect-ratio: 1/1;
+    border: 1px solid rgb(0, 0, 0);
+    display: grid;
+    place-items: center;
+    font-size: clamp(1px,9vw,10rem);
+}
+</style>
+<body>
+    <nav>
+        <button onclick="window.history.back()">Back</button>
+        <h1>TicTakToe</h1>
+    </nav>
+    <section></section>
+    <section class="gameBoard">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </section>
+    <section></section>
+<script src="toe.js">
+   
+</script>
+</body>
+</html>

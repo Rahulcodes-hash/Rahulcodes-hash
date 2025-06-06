@@ -79,7 +79,7 @@ function sbar (e,i){
     coss.style.padding = '1rem'
     btn.innerHTML = '🔍'
     coss.innerHTML = `X`
-    coss.style.background = 'rgb(195,50,0)'
+    coss.style.background = 'rgb(195, 78, 0)'
     coss.style.color = 'white'
     coss.style.fontWeight = '900'
     suboot.appendChild(inp)
@@ -151,7 +151,8 @@ apps.forEach(app => observer.observe(app));
 
 const book = document.querySelector('.book')
 const pages = document.querySelectorAll('.page')
-const pageflip = new Audio('../assets/page-flip-47177.mp3')
+const pageflip = new Audio('../assets/flip.mp3')
+
 pageflip.playbackRate = 2.0
 let mxs, mys, mxm, mym
 
@@ -173,7 +174,7 @@ pages.forEach((e,i)=>{
 })
   e.addEventListener('touchend',(t)=>{
     t.preventDefault()
-    if (mxs >= mxm){pageflip.play()
+    if (mxs >= mxm && getComputedStyle(e).backgroundColor !== "rgb(212, 212, 212)"){pageflip.play()
          e.style.backgroundColor = "rgb(212, 212, 212)"
          e.style.color = "rgb(212, 212, 212)"
   
@@ -181,7 +182,7 @@ pages.forEach((e,i)=>{
    e.style.zIndex =pages.length - i
 
     }
-    else{ pageflip.play()
+    else if (mxs < mxm && getComputedStyle(e).backgroundColor !== "rgb(255, 255, 255)"){ pageflip.play()
     e.style.zIndex = i+1
     e.style.backgroundColor = "white"
      e.style.color = "black"
@@ -189,14 +190,7 @@ pages.forEach((e,i)=>{
 
     }
 
-if(i == pages.length - 1){
-    book.style.justifyContent = "end"
-   }    
-else if(i == 0){
-    book.style.justifyContent = "end"
-   }
-   
-   
+
 })
 })
 console.log("hello")
