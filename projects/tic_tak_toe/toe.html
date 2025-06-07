@@ -10,47 +10,152 @@
 </head>
 <style>
     *{
-        margin: 0;
-        padding: 0;
+        margin: 0;border: none;
+        padding: 0;user-select: none;
         box-sizing: border-box;
     }
     body{
         height: 100vh;
         width: 100vw;
         display: flex;
-        background-color: rgb(231, 231, 231);
+        background-color: rgb(0, 16, 31);
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+        position: relative;
     }
     nav{
         padding: 1rem;
+        height: 4rem;
         width: 100%;
-        background-color: rgb(245, 137, 35);
+        background-color: rgb(245, 112, 35);
         display: flex;
         justify-content: space-between;
         align-items: center;
         color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    --mask:
+    radial-gradient(26.83px at 50% calc(100% - 36px),#000 99%,#0000 101%) calc(50% - 24px) 0/48px 100%,
+    radial-gradient(26.83px at 50% calc(100% + 24px),#0000 99%,#000 101%) 50% calc(100% - 12px)/48px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
     }
     nav > button {
         padding: 1rex;
         border: none;
     }
+    .lobby{
+        height:calc(100vh - 4rem) ;
+        
+        width: 100vw;
+        position: absolute;
+        top: 4rem;
+        background-color: rgb(255, 255, 255);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .lobby .bts{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        gap: 1rem;
+    }
+    .lobby .btns button{
+        background-color: rgb(252, 145, 58);
+        padding: 1rem;color: white;
+        width: 6rem;
+    }
+    .lobby .gameSettings{
+        background-color: rgb(2, 8, 32);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0.2rem;
+        padding: 1rem;
+        width: 90%;
+        height: fit-content;
+        
+    }
+    .lobby .gameSettings > * {
+        color: white;
+        padding: 1rem;
+    }
+
+
+    .lobby .gameSettings > .playerSettings > button{
+        padding: 1rem;background-color: white;
+    }
+.lobby .gameSettings > h2{display: none;}
+.lobby .gameSettings > p{display: none;}
+.lobby .gameSettings > input{
+    -webkit-appearance: none;
+        appearance: none;
+        display: none;
+        height: 2rem;
+        width: 100%;
+        background-color: transparent;
+}
+    .lobby .gameSettings > input::-webkit-slider-runnable-track{
+       height: 2rem;   
+       background-color: rgb(255, 255, 255);
+    }
+      .lobby .gameSettings > input::-webkit-slider-thumb{
+         -webkit-appearance: none;
+  appearance: none;
+       height: 2rem;border: none;
+       width: 2rem;border-radius: 0;
+      background: rgb(1, 103, 167);
+    }
 .gameBoard{
+    height: fit-content;
     display: grid;
-    justify-content: center;
-    width: 50%;
-    grid-template-columns: repeat(3,20vw);
-    gap: 0.5rem;
+    width: max-content;
+    grid-template-columns: repeat(3,max-content);
+    grid-template-rows: repeat(3,max-content);
+    gap: 0.1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 2;
+    background-color: white;
 }
 .gameBoard .box{
+
     width: 20vw;
+    max-width: 10rem;
     aspect-ratio: 1/1;
     border: 1px solid rgb(0, 0, 0);
     display: grid;
     place-items: center;
-    font-size: clamp(1px,9vw,10rem);
+    font-size: clamp(1px,9vw,5rem);
     background-color: white;
+}
+#winAn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    width: 100%;
+    height: calc(100vh - 4rem);
+    top: 4rem;
+    background-color: rgb(255, 255, 255);
+    gap: 3rem;
+
+}
+#winAn h1{
+    padding: 1rem;
+    color: rgb(0, 16, 65);
+}
+#winAn button{
+    padding: 1rem;background-color: rgb(255, 72, 0);
+    color: white;border-radius: 0.2rem
 }
 </style>
 <body>
@@ -58,7 +163,26 @@
         <button onclick="window.history.back()">Back</button>
         <h1>TicTakToe</h1>
     </nav>
-    <section></section>
+    <section class="lobby">
+        <div class="gameSettings">
+            <h1>Game Settings</h1>
+           
+            <div class="playerSettings">
+                <button>PlayerVsPlayer</button>
+                <button>PlayerVsRobot</button>
+            </div>
+
+            <h2>Difficulty : </h2>
+            <input type="range" max="2" min="0" value="0">
+            <p id="difficultyShower">Easy</p>
+        </div>
+        <h1>Want to give it a Try</h1>
+        <div class="btns">
+            <button id="start">Start</button>
+        <button onclick="window.history.back()">exit</button>
+        </div>
+        
+    </section>
     <section class="gameBoard">
         <div class="box"></div>
         <div class="box"></div>
@@ -70,7 +194,10 @@
         <div class="box"></div>
         <div class="box"></div>
     </section>
-    <section></section>
+    <section id="winAn">
+        <h1>Winner Winner</h1>
+        <button onclick="window.location.reload()">Play Again</button>
+    </section>
 <script src="toe.js">
    
 </script>

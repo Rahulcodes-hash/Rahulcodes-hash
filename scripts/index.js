@@ -151,7 +151,7 @@ apps.forEach(app => observer.observe(app));
 
 const book = document.querySelector('.book')
 const pages = document.querySelectorAll('.page')
-const pageflip = new Audio('../assets/flip.mp3')
+const pageflip = new Audio('assets/flip.mp3')
 
 pageflip.playbackRate = 2.0
 let mxs, mys, mxm, mym
