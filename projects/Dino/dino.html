@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta http-equiv='refresh' content='100'> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Game</title>
+
+</head>
+<style>
+    *{
+        margin: 0;border: none;user-select: none;transition: 0.1s;
+        padding: 0;box-sizing: border-box;-webkit-tap-highlight-color: transparent;
+    }
+    html{
+        touch-action:none;
+        height: 100vh;
+        width: 100vw;
+        scroll-behavior: smooth;
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+    nav{
+        height: 4rem;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: orangered;
+        color: white;
+    }
+    #gameSection{
+        height: calc(100vh - 4rem);
+        width: 100vw;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .gameBoundary{
+        height: 50vh;
+        width: 100vw;   position: relative;
+        max-width: 700px;
+        border: 1px solid black;
+        
+    }
+    #user {
+        height: 2rem;
+        width: 1rem;
+        position: absolute;
+        bottom: 0px;
+        left: 50px;
+        background-color: green;
+    }
+    @media only screen and (max-width : 400px) {
+       
+    }
+    /* js classnames */
+    .catus{
+        height: 3rem;
+        width: 1rem;
+        background-color:brown ;
+    }
+    .box{
+        position: absolute;
+        bottom: 0;
+        width:max-content ;
+        right: 10%;
+    }
+</style>
+<body>
+    <nav>
+        <h1>Dino Running Game</h1>
+        <button onclick="()=>window.history.back()">Back</button>
+    </nav>
+    <section id="lobby"></section>
+    <section id="gameSection">
+        <h1 id="score">Your score</h1>
+        <div class="gameBoundary">
+            <div id="user"></div>
+        </div>
+    </section>
+<script src="dino.js"></script>
+</body>
+</html>

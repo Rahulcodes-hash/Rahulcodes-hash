@@ -2,6 +2,7 @@
 let botIsPlaying = false
 const gamefunction = {
     board : document.querySelector('.gameBoard'),
+    section : document.querySelector('#gameSection'),
     boxes : document.querySelectorAll('.gameBoard .box')
 } 
 const h2diff = document.querySelector('.gameSettings h2')
@@ -31,7 +32,7 @@ const GameSettings = {
   show : function(){
     this.diff.oninput = ()=>{
       if (this.diff.value == 0) pdiff.innerText = "Easy"
-      if (this.diff.value == 1) pdiff.innerText = "Normal"
+      else if (this.diff.value == 1) pdiff.innerText = "Normal"
       else pdiff.innerText = "Hard"
     }
   }
@@ -65,7 +66,7 @@ const winAnh1 = document.querySelector('#winAn h1')
 
 function WinA(){
 
-if(winMoves(player1)||winMoves(player2)||winMoves(bot))gamefunction.board.style.display = "none"
+if(winMoves(player1)||winMoves(player2)||winMoves(bot))gamefunction.section.style.display = "none"
  if (winMoves(player1)){
     
     winAnh1.innerHTML = "Player1 Win"
@@ -77,11 +78,10 @@ if(winMoves(player1)||winMoves(player2)||winMoves(bot))gamefunction.board.style.
     winAnh1.innerHTML = "Bot Win"
  }
  else{
+  console.log(possibleMoves.length)
     if (possibleMoves.length == 0 ){
-      gamefunction.board.style.display = "none"
+      gamefunction.section.style.display = "none"
         winAnh1.innerHTML = "Its a Draw"
-    }else{
-
     }
  }
 
@@ -122,12 +122,11 @@ gamefunction.boxes.forEach((e, i) => {
 
     let randIndex = Math.floor(Math.random() * possibleMoves.length);
     let randomMove = possibleMoves[randIndex];
-
-    gamefunction.boxes[randomMove].innerHTML = move[1];
+    if(possibleMoves.length != 0 ){gamefunction.boxes[randomMove].innerHTML = move[1];
+    
     bot.push(randomMove);
-    possibleMoves.splice(randIndex, 1);
+    possibleMoves.splice(randIndex, 1);}
 
-    console.log(randomMove);
   }
 }
 

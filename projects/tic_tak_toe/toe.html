@@ -85,9 +85,14 @@
         color: white;
         padding: 1rem;
     }
-
+.lobby .gameSettings > .playerSettings{
+    display: flex;
+    gap: 0.1rem;
+}
 
     .lobby .gameSettings > .playerSettings > button{
+
+        font-size: clamp(1px,5vw,1rem);
         padding: 1rem;background-color: white;
     }
 .lobby .gameSettings > h2{display: none;}
@@ -147,6 +152,7 @@
     top: 4rem;
     background-color: rgb(255, 255, 255);
     gap: 3rem;
+    z-index: 1;
 
 }
 #winAn h1{
@@ -156,6 +162,13 @@
 #winAn button{
     padding: 1rem;background-color: rgb(255, 72, 0);
     color: white;border-radius: 0.2rem
+}
+#gameSection{
+    height: calc(100vh - 4rem);
+    width: 100%;
+    position: absolute;
+    top: 4rem;background-color: white;
+    z-index: 2;
 }
 </style>
 <body>
@@ -183,7 +196,8 @@
         </div>
         
     </section>
-    <section class="gameBoard">
+    <section id="gameSection">
+            <div class="gameBoard">
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
@@ -193,7 +207,9 @@
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
+            </div>
     </section>
+
     <section id="winAn">
         <h1>Winner Winner</h1>
         <button onclick="window.location.reload()">Play Again</button>
