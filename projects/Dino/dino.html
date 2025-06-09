@@ -10,16 +10,16 @@
 </head>
 <style>
     *{
-        margin: 0;border: none;user-select: none;transition: 0.1s;
+        margin: 0;border: none;user-select: none;transition: 50ms;font-family: Arial, Helvetica, sans-serif;
         padding: 0;box-sizing: border-box;-webkit-tap-highlight-color: transparent;
     }
     html{
-        touch-action:none;
+
         height: 100vh;
         width: 100vw;
         scroll-behavior: smooth;
     }
-    body{
+    body{        touch-action:manipulation;
         height: 100vh;
         width: 100vw;
     }
@@ -29,60 +29,167 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: orangered;
+        background-color: rgb(0, 2, 7);
         color: white;
+        z-index: 10;
+    }
+    nav button{
+        padding: 1rem;
     }
     #gameSection{
         height: calc(100vh - 4rem);
+        position: absolute;
         width: 100vw;
-        background-color: white;
+        background-color: rgb(3, 10, 19);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 2;
+        gap: 1rem;
+        color: white;
+    }
+    #gameSection h1{
+        position: absolute;
+        top: 3rem;
+        left: 1rem;
+
     }
     .gameBoundary{
         height: 50vh;
         width: 100vw;   position: relative;
         max-width: 700px;
-        border: 1px solid black;
-        
+        overflow: hidden;
+        transition: 0.5s all;
+         background: linear-gradient(rgb(47, 154, 255),rgb(136, 209, 238) 95%,rgb(50, 99, 62) 5px);
+        animation: sceneChange 15s  linear infinite;
+    }
+    @keyframes sceneChange {
+        0%{
+        background: linear-gradient(rgb(47, 154, 255),rgb(136, 209, 238) 95%,rgb(50, 99, 62) 5px);
+        }
+        20%{
+        background: linear-gradient(rgb(15, 130, 238),rgb(105, 193, 228) 95%,rgb(50, 99, 62) 5px);
+        }
+        70%{
+            background: linear-gradient(rgb(1, 31, 71),rgb(250, 147, 63) 95%,rgb(3, 24, 9) 5px);
+        }
+        100%{
+        background: linear-gradient(rgb(47, 154, 255),rgb(226, 219, 119) 95%,rgb(2, 29, 9) 5px);
+        }
     }
     #user {
-        height: 2rem;
-        width: 1rem;
+        height: 4rem;
+        width: 2.5rem;
         position: absolute;
         bottom: 0px;
         left: 50px;
-        background-color: green;
-    }
-    @media only screen and (max-width : 400px) {
        
+        /* rotate: 30deg; */
     }
-    /* js classnames */
-    .catus{
-        height: 3rem;
-        width: 1rem;
-        background-color:brown ;
+    .user{
+        width: inherit;
+        height: inherit;
+         background:url(/assets/dinosaur.png) no-repeat center;
+        background-size: contain;
+        animation: movement 1s alternate infinite;
     }
-    .box{
+    @keyframes movement {
+        0%{
+            transform:rotateY(180deg) rotateZ(5deg) rotateX(30deg);
+        }
+        100%{
+            transform:rotateY(180deg) rotateZ(-20deg)  rotateX( -30deg);
+        }
+    }
+    .user::before{
+        content: "";
         position: absolute;
-        bottom: 0;
-        width:max-content ;
-        right: 10%;
+        top: 60%;
+        left: 25%;
+        background:linear-gradient(rgb(119, 180, 84),rgb(59, 112, 15) 80%) ;
+        border-radius: 100%;
+        height: 1.2rem;
+        width: 1.3rem;
+        border: 1px solid black;
+        animation: rotate 0.5s linear infinite;
     }
+@keyframes rotate {
+    from{rotate: 0;}
+    to{rotate: -360deg;}
+}
+    #endSco{
+       height: calc(100vh - 4rem);
+       width: 100%;
+        display: grid;
+    place-items: center;
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        z-index: 0;
+        backdrop-filter: blur(8px)  }
+    .justEnd{
+        height:fit-content ;
+        width:max-content ;
+        
+        padding: 2rem;
+        background-color: rgb(1, 21, 44);
+        color: white;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 0.3rem;
+    }
+    #endSco button{
+          padding: 1rem;
+    }
+    #lobby{
+          height: calc(100vh - 4rem);
+        position: absolute;
+        width: 100vw;
+        background-color: rgb(2, 14, 31);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;color: white;
+        gap: 2rem;
+    }
+#lobby button{
+    padding: 1rem;color: white;
+    background-color: orangered;
+}
+
+    /* js classnames */
 </style>
 <body>
     <nav>
         <h1>Dino Running Game</h1>
         <button onclick="()=>window.history.back()">Back</button>
     </nav>
-    <section id="lobby"></section>
+    <section id="lobby">
+        <h2> - Try my new Game And feedBack Section will be Coming soon</h2>
+        <h3>Enjoy</h3>
+        <button>Start</button>
+    </section>
     <section id="gameSection">
-        <h1 id="score">Your score</h1>
+        <h1 id="score">SCORE </h1>
         <div class="gameBoundary">
-            <div id="user"></div>
+            <div id="user">
+                <div class="user"></div>
+            </div>
         </div>
+    </section>
+    <section id="endSco">
+        <div class="justEnd">
+                 <h1>Highscore</h1>
+        <h2>score</h2>
+        <button onclick="location.reload()">Play Again</button>
+        </div>
+   
+
     </section>
 <script src="dino.js"></script>
 </body>
