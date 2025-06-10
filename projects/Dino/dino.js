@@ -95,7 +95,9 @@ if(gameStarted ==1){
         const gameRect = gameFunction.gameBoundary.getBoundingClientRect();
         const userRect = gameFunction.user.getBoundingClientRect()
        
-         if(scoring(userRect,boxRect)){
+         if(scoring(userRect,boxRect) && !collision(userRect,boxRect)){
+            const coin = new  Audio('/assets/coin-257878.mp3')
+            coin.play()
             s+=1
             gameFunction.score.innerHTML = "SCORE " + s
         }
@@ -107,7 +109,7 @@ if(gameStarted ==1){
             clearInterval(moveInterval);
             if (gameStarted == 2){
 
-if(parseInt(localStorage.getItem('s')) < s){
+if((parseInt(localStorage.getItem('s'))||0) < s){
     localStorage.setItem('s',s)
 }
 endo.end.style.zIndex = 4
