@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta http-equiv='refresh' content='100'> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    *{
+        margin: 0;padding: 0;user-select: none;
+        box-sizing: border-box;border: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    body{
+        height: 100vh;
+        width: 100vw;
+        background: rgb(0, 10, 22);
+    }
+#gameSection{
+height: 100vh;
+width: 100vw;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.gameBoard{background: whitesmoke;
+height: 70%;
+width: 95%;
+max-width: 700px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+position: relative;
+/* overflow: hidden; */
+}
+.gameBoard .ball{
+height: 1.5rem;
+width: 1.5rem;
+background-color: red;
+border-radius:100% ;
+}
+.gameBoard .bar{
+    position: absolute;
+    top: calc(100% - 2.5%);
+    left: 0;
+    height: 2.5%;
+    width: 20%;
+    background-color: blueviolet;
+    border-radius: 0.3rem;
+
+}
+.gameBoard .bubleContainer{
+    height: 30%;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.301);
+    display: grid;
+    grid-template-columns: repeat(3,3rem);
+    justify-content: center;
+    gap: 0.5ex;
+}
+.gameBoard .bubleContainer .bubble{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.4rem;
+    background-color: pink;
+}
+.btns{
+    display: flex;
+    width: 95%;
+    height: 20%;
+    max-width: 700px;
+    gap: 1em;
+}
+.btns button{
+    width: 50%;border-radius: 1rem;
+    margin-top: 1em;
+}
+.btns button:hover{
+    background-color: rgb(68, 228, 89);
+    color: white;
+}
+</style>
+<body>
+    <section></section>
+    <section id="gameSection">
+        <div class="gameBoard">
+            <div class="bubleContainer">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+            </div>
+            <div class="ball"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="btns">
+            <button class="left">Left</button>
+            <button class="right">Right</button>
+        </div>
+    </section>
+    <section></section>
+<script src="buuble.js"></script>
+</body>
+</html>

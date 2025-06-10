@@ -57,6 +57,7 @@ st.onclick = ()=>{
     gameStarted =1
     lobby.style.zIndex =0
 }
+const coin = new  Audio('/assets/coin-257878.mp3')
 let cactusVelocity = 0;
 let s = 0
 // Spawn a new cactus every 3 seconds
@@ -96,7 +97,7 @@ if(gameStarted ==1){
         const userRect = gameFunction.user.getBoundingClientRect()
        
          if(scoring(userRect,boxRect) && !collision(userRect,boxRect)){
-            const coin = new  Audio('/assets/coin-257878.mp3')
+            coin.currentTime = 0
             coin.play()
             s+=1
             gameFunction.score.innerHTML = "SCORE " + s
