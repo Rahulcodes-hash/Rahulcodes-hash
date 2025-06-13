@@ -1,16 +1,36 @@
-<button id="btn" anchor-name="tooltip-anchor">Hover me</button>
-<div class="tooltip" anchor="tooltip-anchor">
-  I am a tooltip!
-</div>
-
-<style>
-    .tooltip {
-  position: anchor(top);           /* Position relative to anchor element */
-  inset-area: top;                 /* Place on top side */
-  background: black;
-  color: white;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-}
-
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Rahul Biswas" description="created by --Rahul Biswas">
+    <title></title>
+    <link rel="stylesheet" href="phy.css">
+</head>
+<body>
+  <!-- Here my nav bar goes for navigation 😎 -->
+  <nav>
+      <h1>Physics Div </h1>
+      <button onclick="window.history.back()">back</button>
+  </nav>
+  <!-- Main the purpose of the website 🤔 -->
+  <main>
+    <!-- this section is for the gravity -->
+      <section id="SectionGravity">
+        <!-- the container box  -->
+        <div class="container">
+          <!-- the user interact with the box to learn  and have a basic understading of gravity -->
+          <div class="gravityBox"></div>
+        </div>
+        <div class="btn">
+          <button>Stop Jump</button>
+          <button>Stop Gravity</button>
+        </div>
+        <h2>Gravity </h2>
+        <p>Explanation</p>
+      </section>
+  </main>
+<script defer src="phy.js"></script>
+</body>
+</html>

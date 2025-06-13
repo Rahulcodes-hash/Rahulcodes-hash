@@ -80,6 +80,6 @@ function buttonsClicking(){
     })
     
 }
-
+//FIX : i will fix this tom
 buttonsClicking()
 
