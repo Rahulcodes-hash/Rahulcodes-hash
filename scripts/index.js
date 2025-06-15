@@ -176,7 +176,7 @@ pages.forEach((e,i)=>{
     t.preventDefault()
     if (mxs >= mxm && getComputedStyle(e).backgroundColor !== "rgb(212, 212, 212)"){pageflip.play()
          e.style.backgroundColor = "rgb(212, 212, 212)"
-         e.style.color = "rgb(212, 212, 212)"
+         e.style.color = "gray"
   
    e.style.transform  = 'rotateY(-180deg) '  
    e.style.zIndex =pages.length - i
@@ -200,4 +200,3 @@ console.log("hello")
     main()
 }) 
 
- 
