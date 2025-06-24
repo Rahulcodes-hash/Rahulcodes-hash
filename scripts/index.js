@@ -1,4 +1,4 @@
-
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -132,19 +132,54 @@ const app_section = document.querySelector(".app-section")
 
 const apps = document.querySelectorAll(".app");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    entry.target.classList.toggle("active", entry.isIntersecting);
-  });
-}, {
-  threshold: 0.8
-});
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach(entry => {
+//     entry.target.classList.toggle("active", entry.isIntersecting);
+//   });
+// }, {
+//   threshold: 0.8
+// });
 
-apps.forEach(app => observer.observe(app));
+// apps.forEach(app => observer.observe(app));
 
+apps[3].style.transform =`translateZ(-${apps[3].getBoundingClientRect().width}px)`
+let mx ,my , sx,sy ; 
+app_section.addEventListener('touchstart',(e)=>{
+let t = e.touches[0]
+sx = t.clientX 
+sy = t.clientY
+})
 
+app_section.addEventListener('touchmove',(e)=>{
+e.preventDefault()
+let t = e.touches[0]
+mx = t.clientX 
+my = t.clientY
+})
 
-
+let y =0 ,x =0
+app_section.addEventListener('touchend',(e)=>{
+if (mx > sx+100){
+   x+=90
+   console.log("ejected")
+   console.log(x)
+  app_section.style.transform = `rotateY(${x}deg)`
+  
+}
+else if(mx < sx){
+     x-=90
+  app_section.style.transform = `rotateY(${x}deg)`
+       
+} 
+else if (sy > my){
+  console.log('up')
+   y+=90
+  app_section.style.transform = `rotateX(${y}deg)`
+}
+else{
+     x-=90
+  app_section.style.transform = `rotateX(${y}deg)`} 
+})
 
 
 // books and page system
@@ -193,9 +228,92 @@ pages.forEach((e,i)=>{
 
 })
 })
-console.log("hello")
+//comment section 
+ 
+const Url = 'https://jucagxduspxcqcmcdkrh.supabase.co';
+const key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1Y2FneGR1c3B4Y3FjbWNka3JoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA1OTkwMjcsImV4cCI6MjA2NjE3NTAyN30.9Ln3rQqvP6rKGf0bpBIvOdsQBBRVfZFSna9EA_-7Vw4'; // Keep this secret in real apps
+const db = createClient(Url, key);
+const msg = document.querySelector('.msg')
+  const inp = document.querySelector('.inp_box input')
+  const btn = document.querySelector('.inp_box button')
+function addtion(data){
+  data.forEach(e=>{
+    const dig = document.createElement('div')
+  dig.className = 'dig'
+const spa = document.createElement('div')
+spa.className = 'sp'
+const p = document.createElement('p')
+p.innerText = e.msg
+p.className= 'm'
+
+msg.appendChild(dig)
+dig.appendChild(spa)
+dig.appendChild(p)
+  })
+
+
+
+}
+async function get(){
+const {data,err} =await db.from('comment').select('msg');
+return data;
+}
+get().then((r)=>{
+  console.log("input "+inp.value);
+ addtion(r);
+
+})
+function apendation(data){
+const dig = document.createElement('div')
+  dig.className = 'dig'
+const spa = document.createElement('div')
+spa.className = 'sp'
+const p = document.createElement('p')
+p.innerText = data.msg
+
+p.className= 'm'
+
+msg.appendChild(dig)
+dig.appendChild(spa)
+dig.appendChild(p)
+}
+
+  
+function  dataGo() {
+
+ btn.onclick =async ()=>{
+    if(inp.value.trim() !=''){
+       const {error} = await db.from("comment").insert([{
+      'msg':inp.value
+      
+    }])
+    
+    inp.value = ''
+    }
+     else{
+      inp.style.background = 'rgb(248, 76, 64)'
+      setTimeout(() => {
+            inp.style.background = 'white'
+      }, 1000);
+    }
+  }
+ 
+ 
+}
+db.channel('public:msg').on(
+  'postgres_changes',{
+    event:'*',
+    schema:'public',
+    table:'comment'
+  },p=>{
+        apendation(p.new)
+  }
+).subscribe()
     function main() {
-        sbar(s,items)
+        sbar(s,items)   
+        
+        dataGo()
+     
     }
     main()
 }) 
