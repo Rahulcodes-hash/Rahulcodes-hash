@@ -27,7 +27,7 @@ const endo ={
 }
 
 //
-let hit = new Audio("/assets/mixkit-impact-of-a-strong-punch-2155.mp3")
+let hit = new Audio("../../assets/mixkit-impact-of-a-strong-punch-2155.mp3")
 userMovement.jump = ()=>{
 gameFunction.gameSection.onclick = ()=>{
     if (userMovement.jumpPart != 0){
@@ -36,7 +36,7 @@ gameFunction.gameSection.onclick = ()=>{
         },300)
     }
     if(gameFunction.user.computedStyleMap().get('bottom').value === 0){
-         jumpSound = new Audio('/assets/8-bit-jump-001-171817.mp3')
+         jumpSound = new Audio('../../assets/8-bit-jump-001-171817.mp3')
         jumpSound.volume = 0.2
     jumpSound.play()
     let heightOfJump = 200
@@ -57,7 +57,7 @@ st.onclick = ()=>{
     gameStarted =1
     lobby.style.zIndex =0
 }
-const coin = new  Audio('/assets/coin-257878.mp3')
+const coin = new  Audio('../../assets/coin-257878.mp3')
 let cactusVelocity = 0;
 let s = 0
 // Spawn a new cactus every 3 seconds
@@ -79,7 +79,7 @@ if(gameStarted ==1){
 
     cactus.style.width = "100%";
     cactus.style.height = "100%";
-    cactus.style.background = "url(/assets/cactus.png) no-repeat";
+    cactus.style.background = "url(../../assets/cactus.png) no-repeat";
     cactus.style.backgroundPositionY = "50px";
     cactus.style.backgroundPositionX = "center";
 

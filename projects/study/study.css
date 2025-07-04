@@ -1,0 +1,772 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+
+}/* disable all  random default */
+::-webkit-scrollbar{
+    display: none;
+}
+body,html{
+    height: 100vh;
+    width: 100vw;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background:url(../../assets/doodles.jpg) rgb(255, 255, 255);
+    background-size: contain;
+}
+/* universal logs */
+input[type=button]:active{
+opacity: 0.5;
+}
+
+/* Nav Header declared */
+nav{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    background-color: rgb(39, 39, 39);
+    
+    z-index: 10;
+    position: sticky;
+    top: 0;
+}
+nav *{
+    padding: 0.8rem;
+}
+
+
+nav #pic{
+    width: 20%;padding: 0;
+       background-color: rgb(37, 128, 108);
+    max-height: 100px;
+    max-width: 100px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav #pic img{
+object-fit: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}
+
+
+nav #pic > .profile{
+padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+ width: 0;   height: 100vh;
+    max-width: 500px;
+   overflow:scroll;
+      top: 8vh;
+transition: 0.5s ;
+}
+.profile > .pfpic{
+  
+   height: 200px;
+   aspect-ratio: 1/1;
+   border-radius: 100%;
+    outline: 0.5rem solid rgb(75, 75, 75);
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.profile .info{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: scroll;
+
+}
+.profile  li{
+    list-style-type: none;
+    padding: 0.3em;
+    
+}
+.profile .info li span{
+    background-color: #363636;
+    color: white;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius:5px;
+    border-top-left-radius:5px;
+}
+.profile .info li input{
+    background-color: white;
+    width: 100%;
+    max-width: 300px;
+     border-bottom-right-radius:5px ;
+    border-top-right-radius:5px ;
+} 
+nav #pic:hover .profile{
+
+    flex-direction: column;
+    align-items: center;
+width: 80%;
+
+   transition: 0.5s;
+   padding: 0.3em;
+
+   
+
+}
+nav #pic:hover .profile *{
+display: flex;
+
+}
+nav #pic .profile *{
+display: none;
+
+}
+nav #pic .profile .custo{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+.custo .problem{
+    height: 70%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+.custo .prb-inp{
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+}
+.prb-inp .i{
+    width: 100%;
+}
+
+nav .user{
+       background-color: rgb(28, 151, 125);
+    padding: 0.5em;color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  flex-direction: column;
+justify-content: center;
+
+border-top-right-radius:120px ;
+border-bottom-right-radius:120px ;
+
+}
+nav .user span{
+    padding: 0.1em;
+    font-size: small;
+}
+nav #participants{
+background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    max-width: 100px;
+    
+}
+nav #participants .member{
+    padding: 0;
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 80%;
+   height: 0;
+   overflow: hidden;
+   transition: all cubic-bezier(1, 0, 0, 1) 0.5s ;
+    background-color: rgb(255, 255, 255);
+    max-width: 500px; z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius:  0 0 10px 10px;
+}
+.member .pp{
+    width: 100%;
+} 
+.member .pp > ul{
+    padding: 0.5em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em; overflow: scroll;
+    
+}
+.member >.pp ul li{
+    text-align: left;
+    list-style: none;
+    background-color: rgb(248, 248, 248);
+    color: rgb(109, 109, 109);
+   
+    border-radius: 3px;
+   
+   display: flex;
+   align-items: center;
+    height: 45px;
+    padding: 0; width: 100%;
+    position: relative;
+
+}
+.pp ul li .picking{
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: rgb(38, 184, 152);
+    padding: 0;
+    border-radius: 10px;
+}
+.pp ul li .userName{
+    padding: 0;
+    display: flex;
+    
+}
+.hs{
+    font-size: 130%;color: #242424;
+    font-weight: bolder;
+}
+.on{padding: 0;
+    height: 15px;
+    aspect-ratio: 1/1;border-radius: 100%;
+    position: absolute;
+    background: green;
+    right: 2%;
+    top: -15%;
+}
+nav #participants:hover .member{
+     height: 92vh;
+  
+    z-index: 10;
+    overflow: visible;
+}
+.member .chat{
+    height: 35%;
+    width: 100%;
+ 
+    display: flex;
+    flex-direction: column;
+   
+   background-color: rgb(51, 51, 51);
+    
+
+    transition: 0.5s ;
+}
+.chat .msgBox{
+    height: 90%;
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.msgBox ul{
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.3em;
+
+    
+}
+.msgBox > ul li{
+    width: 100%;
+    height: fit-content;
+    padding: 0.7rem;
+    border-radius: 0;
+     background-color: rgb(45, 45, 45);
+     color: rgb(209, 209, 209);
+
+     text-align: start;
+     list-style: none; 
+
+     display: flex;
+     flex-direction: column;
+     border-radius: 0 20px 20px 20px;
+}
+.msgBox > ul li .u{
+    color: rgb(36, 197, 36);font-weight: bolder;
+    
+}
+.msgBox > ul li .ui{
+    font-weight: bolder;
+    text-align: end;
+    color: rgb(36, 133, 197)
+}
+.msgBox > ul li .text{
+    background-color: #2e2e2e;
+    color: rgb(255, 255, 224);
+    padding: 0.5rem;
+     
+}
+.msgBox > ul .textt{
+    text-align: end;
+    background-color: #2e2e2e;
+    color: rgb(255, 255, 224);
+    padding: 0.5rem;
+    border-radius: 20px 20px 0 20px;
+}
+
+.chat .inpB{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+   
+}
+.member .heightChange{
+height: 90%;
+}
+
+/* Nav ended */
+    /* main  */
+
+main{
+    width: 100%;
+    height: 92vh;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+section{
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 40%;
+    max-width: 1800px;
+   
+}
+.dash{
+    width: 40%;
+    gap: 0;
+    
+}
+.score{
+width: 40%;
+height: 100%;
+min-width: 300px;
+
+padding: 0.4em;
+color: rgb(53, 53, 53);
+font-family: Arial, Helvetica, sans-serif;
+
+display: flex;
+
+}
+
+.score .l{
+    width: 100%;
+    height: 100%;
+    color:rgb(43, 43, 43) ;
+    background:linear-gradient(to left,rgb(49, 49, 49) 90px,rgba(46, 151, 128, 0) 10px)  ;
+
+    padding: 1em;
+    border-radius:0 0 0.4rem 0.4rem ;
+
+    text-shadow: 0 0 1em white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.clock{
+height: 100%;
+width: 60%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+ background-color:rgba(255, 255, 255, 0.144);
+border-radius: 10px;
+backdrop-filter: blur(1px);
+box-shadow:  inset 0 0 1em rgb(255, 255, 255);
+}
+
+.clock .loggs{
+    color: rgb(87, 87, 87);
+    height: 100%;
+    width: 65%;padding: 0.5em;
+   
+}
+.clock .clockBox{
+    border-radius: 10px;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+.clock .face{
+    padding: 0.5em;
+height: 100%;
+aspect-ratio: 1/1;
+display: flex;
+justify-content: center;
+align-items: center;
+background:linear-gradient(to right,red,orange,yellow,green);
+outline: 1px solid rgb(204, 203, 203);
+border-radius: 100%;
+overflow: hidden;
+position: relative;
+}
+.clock .face > .hand{
+height: 50%;
+width: 5px;
+background-color:rgb(29, 29, 29) ;
+transform-origin: bottom;
+transform: rotateZ(10deg);
+border-radius: 10px;
+border-top-left-radius:100% ;
+border-top-right-radius:100% ;
+position: relative;
+display: flex;
+justify-content: center;
+}
+.clock .face::before{
+    content: '';
+    position: absolute;
+    top: 70%;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(26, 26, 26);
+}
+
+main section > .timestop{
+    height: 400px;flex-grow: 1;
+    width:calc(50% - 00.5em) ;border-radius: 10px;
+    background-color: rgb(243, 243, 243);
+    display:flex ;
+    justify-content: center;
+    align-items: end;
+    box-shadow: inset 0 0 1em rgba(212, 212, 212, 0.432);
+
+    position: relative;
+
+    transition: 0.5s;
+
+}
+main section > .timestop:nth-child(1){
+    color: rgb(66, 4, 66);
+    background: url(../../assets/countup.webp) center no-repeat rgba(186, 152, 240, 0.356);
+    background-size: contain;
+}
+main section > .timestop:nth-child(3){
+  display: flex;
+  align-items: center;
+    background:url(../../assets/wave.png) rgba(189, 241, 168, 0.37) no-repeat center;
+    background-size: 100%;
+    color: white;
+}
+main section > .timestop:nth-child(2){
+    color: white;
+          background: url(../../assets/countDown.png) center no-repeat rgba(186, 152, 240, 0.356);
+    background-size: 90%;
+    background-color:rgba(62, 153, 141, 0.295) ;}
+
+main section >.timestop:nth-child(1)::before{
+position: absolute;
+content: 'Popular';
+top: 0;
+left: 0;
+background-color: rgb(107, 57, 189);
+color: white;
+padding: 0.5em;
+border-radius: 10px;
+
+transform: translate(20%,-50%);
+}
+
+main section >.timestop:nth-child(3)::before{
+position: absolute;
+content: 'Coming Soon';
+top: 0;
+left: 0;
+background-color: rgb(53, 146, 17);
+color: white;
+padding: 0.5em;
+border-radius: 3px;
+
+transform: translate(20%,-50%);
+}
+main section >.timestop:nth-child(2)::before{
+position: absolute;
+content: 'For Exam';
+top: 0;
+left: 0;
+background-color: rgb(17, 146, 129);
+color: white;
+padding: 0.5em;
+border-radius: 3px;
+
+transform: translate(20%,-50%);
+}
+.timestop:hover{
+    transform: scale(1.1,1.1);
+}
+    /* main end */
+
+    /* FOOTER START HERE */
+
+    footer {
+        width: 100%;
+        margin-top: 7rem;
+  background: rgb(28, 151, 125);
+    color: #f1f1f1;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  footer h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  footer h2 span {
+    color: #242424;
+    font-size: larger;
+  }
+
+  footer p {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .footer-links a {
+    color: #f1f1f1;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover {
+    color: #00bcd4;
+  }
+
+  .social-icons {
+    margin-top: 1rem;
+  }
+
+  .social-icons a {
+    margin: 0 8px;
+    display: inline-block;
+    color: #f1f1f1;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    color: #00bcd4;
+    transform: scale(1.2);
+  }
+
+  .copyright {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+@media  only screen and (max-width:1000px) {
+    section{
+        flex-wrap: wrap;
+    }
+    .dash{
+        width: 100%;
+    }
+    .score{
+        width: 90%;
+        height: fit-content;
+       
+    }.score .l{
+        height: fit-content;
+    }
+    .clock{
+        width: 90%;
+        padding: 2em 0 2em  0;
+      
+        height: 50%;margin:  0 0 2em 0;
+    }
+main section > .timestop{
+    height: 200px;
+}
+   
+}
+
+/* login box additinal */
+.logs{
+    display: flex;   position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+
+    backdrop-filter:blur(2px);
+    display: none;
+}
+.loginbox{
+  
+    height: 50vh;
+    max-height: 300px;
+    aspect-ratio: 1/1;
+    background-color: white;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    display:flex ;
+    gap: 0.4em;
+    padding: 1rem;
+
+
+
+    border-radius: 10px;
+     
+}
+.loginbox *{
+    width:100% ;
+padding: 1rem;
+
+}
+.loginbox input{
+    border-bottom: 1px solid rgb(54, 54, 54);
+}
+.loginbox button{
+    background-color: green;
+    color: white;font-weight: bolder;
+}
+
+.loginS{
+    display: flex;
+}
+
+/* clips Section  */
+
+.clips{
+    display: none;
+    position: absolute;
+    height: 92vh;
+    width: 100%;
+    background-color: black;
+    top: 8vh;
+    z-index: 9;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 2em;
+
+}
+.setting{
+
+}
+.setting *{
+    padding: 1em;
+}
+.count{
+
+}
+.count h1{
+    font-size: 5em;
+    color: white;
+}
+.backlogs{
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+   
+}
+.backlogs button{
+    width: 10em;
+    background: white;
+}
+
+/* loading bar */
+.load{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #363636ad;
+    top: 0;
+    z-index: 50;
+}
+.load .bar{
+    height: 70px;
+    aspect-ratio: 1/1;
+    border: 0.5em dashed white;
+    animation: loading 4s linear infinite;
+}
+
+@keyframes loading {
+    0%{rotate:0deg ;border-radius: 0;}
+    10%{rotate:0deg ;border-radius: 0;}
+    20%{rotate:0deg ;border-radius: 100%;}
+    30%{rotate:0deg ;border-radius: 0;}
+    40%{rotate:360deg ;border-radius: 0;}
+    50%{rotate:0deg ;border-radius: 100%;}
+    60%{rotate:0deg ;border-radius: 0;}
+    70%{rotate:0deg ;border-radius: 0;}
+    80%{rotate:0deg ;border-radius: 100%;}
+    90%{rotate:0deg ;border-radius: 0;}
+    100%{rotate:360deg ;border-radius: 0;}
+}
+
+/* ban status */
+.bans{
+     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #363636ad;
+    top: 0;
+    z-index: 49;display: none;
+}
+
+.ban{
+    height: 200px;
+    width: 300px; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #242424;
+    color: white;border-radius: 10px;
+    padding: 1em;
+    
+
+}
