@@ -211,7 +211,7 @@ nav #participants .member{
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.3em; overflow: scroll;
+    gap: 1em; overflow: scroll;
     
 }
 .member >.pp ul li{
@@ -232,9 +232,9 @@ nav #participants .member{
 .pp ul li .picking{
     height: 100%;
     aspect-ratio: 1/1;
-    background-color: rgb(38, 184, 152);
+    background-color: rgb(124, 199, 243);
     padding: 0;
-    border-radius: 10px;
+    border-radius: 100%;
 }
 .pp ul li .userName{
     padding: 0;
@@ -245,13 +245,23 @@ nav #participants .member{
     font-size: 130%;color: #242424;
     font-weight: bolder;
 }
-.on{padding: 0;
-    height: 15px;
+.on{  padding: 0;
+    height: 100%;
     aspect-ratio: 1/1;border-radius: 100%;
     position: absolute;
-    background: green;
-    right: 2%;
-    top: -15%;
+    background:transparent;
+    outline: 6px solid rgb(9, 156, 132);
+   left: 0;
+}
+.off{
+   
+    height: 100%;
+    aspect-ratio: 1/1;border-radius: 100%;
+    position: absolute;
+    background:transparent;
+    outline: 6px solid rgb(167, 167, 167);
+   left: 0;
+   
 }
 nav #participants:hover .member{
      height: 92vh;

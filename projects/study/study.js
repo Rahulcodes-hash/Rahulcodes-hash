@@ -190,7 +190,7 @@ const ban = document.querySelector('.bans')
 gett().then((e)=>{
 id.innerHTML =`ID : #${localStorage.getItem('id')}`  || "NULL"
 if(id.innerHTML === 'ID : #null'){
-    console.log("not loginnnn")
+    console.log("not login")
 }
 else{
     dash.style.marginTop = '4em'
@@ -198,7 +198,7 @@ else{
 
     idre().then(async (r)=>{
         un.innerHTML = r[0].username
-        title.innerHTML ="Title : " + r[0].title
+        title.innerHTML ="Title : " + r[0].tittle || "Beginner"
         u.value = r[0].username
         n.value = r[0].name
         email.value = r[0].email
@@ -215,7 +215,7 @@ else{
             console.log(e)
         }
         else{
-            load.style.display = 'none'
+          
 
             console.log("succes ful")
         }
@@ -248,6 +248,46 @@ alldata().then((r)=>{
         picking.className = 'picking'
         li.appendChild(picking)
         let usena = document.createElement('div')
+        let o = document.createElement('div')
+
+        // online or offline
+ const userId = String(d.id)       
+const ch = db.channel('uS', {
+  config: {
+    presence: {
+      key: userId
+    }
+  }
+})
+
+ch.on('presence', { event: 'join' }, ({ key }) => {
+  if (key !== userId) {
+  o.className = 'on'
+  } else {
+      
+    console.log("You joined — ignoring.")
+  }
+})
+
+ch.on('presence', { event: 'leave' }, ({ key }) => {
+  if (key !== userId) {
+    o.className = 'off'
+  } else {
+    
+    console.log("You left — ignoring.")
+  }
+})
+
+ch.subscribe((status) => {
+  if (status === 'SUBSCRIBED') {
+    ch.track({
+      id: userId
+    })
+  }
+})
+
+
+        o.className = 'onn'
         usena.className = 'userName'
         li.appendChild(usena)
         let uu = document.createElement('p')
@@ -257,11 +297,13 @@ alldata().then((r)=>{
         t.className = 't'
         hs.className = 'hs'
         uu.innerText = d.username
-        t.innerText = d.title
+        t.innerText = d.tittle || "Beginner"
         hs.innerText = d.points
         usena.appendChild(uu)
         usena.appendChild(t)
-        usena.appendChild(hs)
+        usena.appendChild(hs)  
+        usena.appendChild(o)
+        load.style.display = 'none'
     })
 
 })
@@ -304,7 +346,7 @@ chl.on('broadcast',{event:'sen'},(p)=>{
     const text = document.createElement('p')
     u.className = 'u'
     text.className = 'text'
-     u.innerText = username
+     u.innerText = username ||'LoginPlease'
     li.appendChild(u)
    
     text.innerText = msg
